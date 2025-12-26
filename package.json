@@ -1,0 +1,22 @@
+{
+  "name": "playwright-with-artem-bondar-academy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yaqoob-Aslam/Playwright-with-Artem-Bondar-Academy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yaqoob-Aslam/Playwright-with-Artem-Bondar-Academy/issues"
+  },
+  "homepage": "https://github.com/Yaqoob-Aslam/Playwright-with-Artem-Bondar-Academy#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.3"
+  }
+}
