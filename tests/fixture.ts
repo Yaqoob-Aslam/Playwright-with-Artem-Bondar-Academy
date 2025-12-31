@@ -12,7 +12,8 @@ export const test = base.extend<MyFixtures>({
     await use(myWorld);
   },
 
-  greatDay: async ({helloWorld}, use) => {
+  greatDay: async ({helloWorld, page}, use) => {
+    await page.goto('https://example.com');
     const myDay = helloWorld +  '. Today is a great day!';
     await use(myDay);
   },
