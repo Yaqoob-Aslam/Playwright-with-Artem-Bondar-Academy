@@ -5,7 +5,7 @@ test('Where is my candy', async ({helloWorld}) => {
   console.log('Where is my candy?')
 })
 
-test('I am alive', async ({helloWorld}) => {
-  console.log(helloWorld);
+test('I am alive', async ({greatDay}) => {
+  console.log(greatDay);
   console.log('I am alive!')
 });
