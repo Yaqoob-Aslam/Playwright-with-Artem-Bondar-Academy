@@ -5,7 +5,11 @@ type MyFixtures = {
   greatDay: string;
 };
 
-export const test = base.extend<MyFixtures>({
+type WorkflowFixtures = {
+  cupOfCoffee: string;
+};
+
+export const test = base.extend<MyFixtures, WorkflowFixtures>({
 
   helloWorld: async ({}, use) => {
     const myWorld = 'Hello, World!';
@@ -13,8 +17,14 @@ export const test = base.extend<MyFixtures>({
   },
 
   greatDay: async ({helloWorld, page}, use) => {
-    await page.goto('https://example.com');
+    // await page.goto('https://example.com');
     const myDay = helloWorld +  '. Today is a great day!';
     await use(myDay);
   },
+
+  cupOfCoffee: [async ({}, use, workerInfo) => {
+  const cup = 'The cup of coffee No.: ' + workerInfo.workerIndex;
+  await use(cup);
+}, { scope: 'worker' }]
+
 });
