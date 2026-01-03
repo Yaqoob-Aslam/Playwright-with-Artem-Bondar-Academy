@@ -38,7 +38,7 @@ test('HAR Flow - Article Creation and Retrieval', async ({ api }) => {
         .body(createArticleData)
         .postRequest(201);
     expect(createResponse).toBeDefined();
-    expect(createResponse).toHaveProperty('article');
+    expect(createResponse).toHaveProperty('articles');
     expect(createResponse.article).toHaveProperty('slug');
 
     const articleSlug = createResponse.article.slug;

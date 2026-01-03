@@ -9,36 +9,37 @@ export default defineConfig({
     timeout: 10_000,
     toHaveScreenshot: { maxDiffPixels: 250 },
   },
-
+    
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
-  reporter: 'html',
+  workers: 1,
+  reporter: [['html'], ['list']],
 
   use: {
-    actionTimeout: 30_000,
-    navigationTimeout: 30_000,
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
+
+    actionTimeout: 30_000,
+    navigationTimeout: 30_000,
   },
+
 
   projects: [
     
     {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-        viewport: null,             
-        deviceScaleFactor: undefined,
-        isMobile: false,
-        launchOptions: {
-          headless: false,
-          args: ['--start-maximized'], 
-        },
-      },
+  name: 'chromium',
+  use: {
+    ...devices['Desktop Chrome'],
+    viewport: { width: 1920, height: 1080 },  // Fixed large size, null mat rakho
+    deviceScaleFactor: undefined,
+    isMobile: false,
+    launchOptions: {
+      headless: false,
+      args: ['--start-maximized'], 
     },
-
+  },
+},
     {
       name: 'firefox',
       use: {
