@@ -6,14 +6,14 @@ export default defineConfig({
   timeout: 60_000,
 
   expect: {
-    timeout: 10_000,
+    timeout: 10000,
     toHaveScreenshot: { maxDiffPixels: 250 },
   },
     
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: 1,
-  reporter: [['html'], ['list']],
+  reporter: [['html'], ['list'],['github']],
 
   use: {
     trace: 'retain-on-failure',
