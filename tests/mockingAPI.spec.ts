@@ -1,17 +1,8 @@
 import { test, expect } from '@playwright/test';
+import tags from '../mock/tags.json';
 
 test('Mocking APIs - Popular Tags', async ({ page }) => {
-  await page.route('https://conduit-api.bondaracademy.com/api/tags', async route => {
-    const tags = {
-      tags: [
-        'API',
-        'Mocking',
-        'Playwright',
-        'Automation',
-        'Testing'
-      ]
-    };
-
+    await page.route('https://conduit-api.bondaracademy.com/api/tags', async route => {
     await route.fulfill({ json: tags });
   });
 
